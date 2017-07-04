@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import events from './events';
+import Event from './Event';
 
 import HTML5Backend from 'react-dnd-html5-backend'
 import { DragDropContext } from 'react-dnd'
@@ -31,6 +32,11 @@ class App extends Component {
         <DragAndDropCalendar
           selectable
           events={events}
+          components={{
+            work_week: {
+              event: Event
+            }
+          }}
           onEventDrop={() => console.log('Dropped')}
           defaultView='work_week'
           views={['work_week']}
